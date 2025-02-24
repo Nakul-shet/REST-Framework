@@ -32,4 +32,10 @@ public class PostEndPoint {
     public Post getPostById(int postId) {
         return apiClient.getById(POSTS_ENDPOINT, postId, Post.class);
     }
+
+    // Create
+
+    // Update
+
+    // Delete
 }

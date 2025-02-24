@@ -30,36 +30,4 @@ public class ResponseValidator {
                 "Response body should not be empty");
     }
 
-    /**
-     * Validates that a list response contains the expected number of items
-     */
-//    public static void validateListSize(Response response, String jsonPath, int expectedSize) {
-//        List<?> items = response.jsonPath().getList(jsonPath);
-//        Assert.assertEquals(items.size(), expectedSize,
-//                "Expected " + expectedSize + " items but found " + items.size());
-//        logger.info("List size validation passed: {} items", items.size());
-//    }
-//
-//    /**
-//     * Validates that the response conforms to the expected schema
-//     */
-//    public static <T> void validateSchema(Response response, Class<T> schemaClass) {
-//        try {
-//            objectMapper.readValue(response.asString(), schemaClass);
-//            logger.info("Schema validation passed for {}", schemaClass.getSimpleName());
-//        } catch (Exception e) {
-//            logger.error("Schema validation failed: {}", e.getMessage());
-//            Assert.fail("Schema validation failed: " + e.getMessage());
-//        }
-//    }
-//
-//    /**
-//     * Validates that a specific header exists and has the expected value
-//     */
-//    public static void validateHeader(Response response, String headerName, String expectedValue) {
-//        String actualValue = response.getHeader(headerName);
-//        Assert.assertEquals(actualValue, expectedValue,
-//                "Header " + headerName + " expected " + expectedValue + " but got " + actualValue);
-//        logger.info("Header validation passed for {}: value = {}", headerName, actualValue);
-//    }
 }
