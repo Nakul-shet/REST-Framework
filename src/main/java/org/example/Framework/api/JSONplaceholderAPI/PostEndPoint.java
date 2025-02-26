@@ -33,9 +33,4 @@ public class PostEndPoint {
         return apiClient.getById(POSTS_ENDPOINT, postId, Post.class);
     }
 
-    // Create
-
-    // Update
-
-    // Delete
 }

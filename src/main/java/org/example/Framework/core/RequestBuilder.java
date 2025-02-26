@@ -33,12 +33,5 @@ public class RequestBuilder {
         return builder.build();
     }
 
-    // Get Request with Path Params
-
-    // Post Request
-
-    // Pull Request
-
-    // Delete Request
 
 }
