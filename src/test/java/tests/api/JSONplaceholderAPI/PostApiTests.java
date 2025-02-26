@@ -1,19 +1,14 @@
-package tests.api;
+package tests.api.JSONplaceholderAPI;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
-import org.example.Framework.api.endpoints.PostEndPoint;
-import org.example.Framework.models.Post;
-import org.example.Framework.models.Comment;
+import org.example.Framework.api.JSONplaceholderAPI.PostEndPoint;
+import org.example.Framework.models.JSONPlaceholderAPImodels.Post;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PostApiTests extends BaseTest {
 

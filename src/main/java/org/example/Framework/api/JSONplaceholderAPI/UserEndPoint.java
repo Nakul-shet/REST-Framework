@@ -1,4 +1,4 @@
-package org.example.Framework.api.endpoints;
+package org.example.Framework.api.JSONplaceholderAPI;
 
 public class UserEndPoint {
 

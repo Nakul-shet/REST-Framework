@@ -1,4 +1,4 @@
-package org.example.Framework.models;
+package org.example.Framework.models.JSONPlaceholderAPImodels;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

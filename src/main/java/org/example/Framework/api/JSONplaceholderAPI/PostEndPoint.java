@@ -1,8 +1,8 @@
-package org.example.Framework.api.endpoints;
+package org.example.Framework.api.JSONplaceholderAPI;
 
 import org.example.Framework.api.BaseAPIClient;
-import org.example.Framework.models.Post;
-import org.example.Framework.models.Comment;
+import org.example.Framework.models.JSONPlaceholderAPImodels.Post;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
