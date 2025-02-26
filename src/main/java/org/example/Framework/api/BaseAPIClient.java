@@ -53,9 +53,4 @@ public class BaseAPIClient {
         return ResponseHandler.extractResponseAsList(response, responseArrayClass);
     }
 
-    // Create
-
-    // Update
-
-    // Delete
 }
