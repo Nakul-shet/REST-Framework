@@ -62,12 +62,10 @@ public class PostEndPoint {
     public Post partialUpdatePost_withPartialData() {
         Post partialPost = new Post();
         partialPost.setTitle("Partially Updated Title");
-        // Only updating the title, leaving other fields unchanged
         return apiClient.partialUpdate(POSTS_ENDPOINT + "/1", partialPost, Post.class);
     }
 
     public Post partialUpdatePost_withSpecificData(Integer postId, Map<String, Object> fieldsToUpdate) {
-        // Create a partial object with only the fields that need to be updated
         Post partialPost = new Post();
 
         if (fieldsToUpdate.containsKey("userId")) {

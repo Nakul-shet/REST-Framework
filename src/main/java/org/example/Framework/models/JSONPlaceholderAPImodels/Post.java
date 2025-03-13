@@ -18,7 +18,6 @@ public class Post {
     @JsonProperty("body")
     private String body;
 
-    // Default constructor required for Jackson
     public Post() {
         this.id = 21;
         this.userId = 103;
@@ -26,14 +25,12 @@ public class Post {
         this.body = "Test Body";
     }
 
-    // Constructor for creating new posts
     public Post(Integer userId, String title, String body) {
         this.userId = userId;
         this.title = title;
         this.body = body;
     }
 
-    // Getters and setters
     public Integer getId() {
         return id;
     }

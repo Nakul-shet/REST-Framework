@@ -61,7 +61,7 @@ public class BaseAPIClient {
                 .when()
                 .post(endpoint)
                 .then()
-                .statusCode(201)  // Assuming 201 Created for successful POST
+                .statusCode(201)
                 .extract()
                 .response();
 
@@ -76,7 +76,7 @@ public class BaseAPIClient {
                 .when()
                 .post(endpoint)
                 .then()
-                .statusCode(201)  // Assuming 201 Created for successful POST
+                .statusCode(201)
                 .extract()
                 .response();
 
@@ -91,7 +91,7 @@ public class BaseAPIClient {
                 .when()
                 .put(endpoint)
                 .then()
-                .statusCode(200)  // Assuming 200 OK for successful PUT
+                .statusCode(200)
                 .extract()
                 .response();
 
@@ -106,7 +106,7 @@ public class BaseAPIClient {
                 .when()
                 .put(endpoint)
                 .then()
-                .statusCode(200)  // Assuming 200 OK for successful PUT
+                .statusCode(200)
                 .extract()
                 .response();
 
@@ -121,7 +121,7 @@ public class BaseAPIClient {
                 .when()
                 .patch(endpoint)
                 .then()
-                .statusCode(200)  // Assuming 200 OK for successful PATCH
+                .statusCode(200)
                 .extract()
                 .response();
 
@@ -136,7 +136,7 @@ public class BaseAPIClient {
                 .when()
                 .patch(endpoint)
                 .then()
-                .statusCode(200)  // Assuming 200 OK for successful PATCH
+                .statusCode(200)
                 .extract()
                 .response();
 
