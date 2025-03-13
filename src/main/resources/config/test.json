@@ -1,0 +1,4 @@
+{
+  "api.baseUrl" : "https://jsonplaceholder.typicode.com",
+  "api.timeout" : 10000
+}

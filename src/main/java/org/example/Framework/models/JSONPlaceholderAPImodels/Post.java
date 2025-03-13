@@ -20,6 +20,10 @@ public class Post {
 
     // Default constructor required for Jackson
     public Post() {
+        this.id = 21;
+        this.userId = 103;
+        this.title = "Test Title";
+        this.body = "Test Body";
     }
 
     // Constructor for creating new posts

@@ -14,7 +14,7 @@ public class EnvironmentConfig {
 
     private static void loadProperties() {
         String env = System.getProperty("env", DEFAULT_ENV);
-        String propertiesFile = "config/" + env + ".properties";
+        String propertiesFile = "config/" + env + ".json";
 
         try (InputStream input = EnvironmentConfig.class.getClassLoader().getResourceAsStream(propertiesFile)) {
             if (input == null) {

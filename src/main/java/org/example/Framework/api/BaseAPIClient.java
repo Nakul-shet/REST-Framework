@@ -53,4 +53,94 @@ public class BaseAPIClient {
         return ResponseHandler.extractResponseAsList(response, responseArrayClass);
     }
 
+    public <T, R> R create(String endpoint, T requestBody, Class<R> responseClass) {
+
+        Response response = given()
+                .spec(RequestBuilder.getPostRequest(requestBody))
+                .body(requestBody)
+                .when()
+                .post(endpoint)
+                .then()
+                .statusCode(201)  // Assuming 201 Created for successful POST
+                .extract()
+                .response();
+
+        return ResponseHandler.extractResponseAsObject(response, responseClass);
+    }
+
+    public <T, R> R createWithQueryParams(String endpoint, T requestBody, Map<String, Object> queryParams, Class<R> responseClass) {
+
+        Response response = given()
+                .spec(RequestBuilder.getPostRequestWithQueryParams(queryParams , requestBody))
+                .body(requestBody)
+                .when()
+                .post(endpoint)
+                .then()
+                .statusCode(201)  // Assuming 201 Created for successful POST
+                .extract()
+                .response();
+
+        return ResponseHandler.extractResponseAsObject(response, responseClass);
+    }
+
+    public <T, R> R update(String endpoint, T requestBody, Class<R> responseClass) {
+
+        Response response = given()
+                .spec(RequestBuilder.getPutRequest(requestBody))
+                .body(requestBody)
+                .when()
+                .put(endpoint)
+                .then()
+                .statusCode(200)  // Assuming 200 OK for successful PUT
+                .extract()
+                .response();
+
+        return ResponseHandler.extractResponseAsObject(response, responseClass);
+    }
+
+    public <T, R> R updateWithQueryParams(String endpoint, T requestBody, Map<String, Object> queryParams, Class<R> responseClass) {
+
+        Response response = given()
+                .spec(RequestBuilder.getPutRequestWithQueryParams(queryParams, requestBody))
+                .body(requestBody)
+                .when()
+                .put(endpoint)
+                .then()
+                .statusCode(200)  // Assuming 200 OK for successful PUT
+                .extract()
+                .response();
+
+        return ResponseHandler.extractResponseAsObject(response, responseClass);
+    }
+
+    public <T, R> R partialUpdate(String endpoint, T requestBody, Class<R> responseClass) {
+
+        Response response = given()
+                .spec(RequestBuilder.getPatchRequest(requestBody))
+                .body(requestBody)
+                .when()
+                .patch(endpoint)
+                .then()
+                .statusCode(200)  // Assuming 200 OK for successful PATCH
+                .extract()
+                .response();
+
+        return ResponseHandler.extractResponseAsObject(response, responseClass);
+    }
+
+    public <T, R> R partialUpdateWithQueryParams(String endpoint, T requestBody, Map<String, Object> queryParams, Class<R> responseClass) {
+
+        Response response = given()
+                .spec(RequestBuilder.getPatchRequestWithQueryParams(queryParams, requestBody))
+                .body(requestBody)
+                .when()
+                .patch(endpoint)
+                .then()
+                .statusCode(200)  // Assuming 200 OK for successful PATCH
+                .extract()
+                .response();
+
+        return ResponseHandler.extractResponseAsObject(response, responseClass);
+    }
+
 }

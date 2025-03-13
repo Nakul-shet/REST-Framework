@@ -33,5 +33,82 @@ public class RequestBuilder {
         return builder.build();
     }
 
+    public static RequestSpecification getPostRequest(Object body) {
+        RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setBaseUri(EnvironmentConfig.getBaseUrl())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBody(body)
+                .log(LogDetail.ALL);
+
+        return builder.build();
+    }
+
+    public static RequestSpecification getPostRequestWithQueryParams(Map<String, Object> queryParams , Object body) {
+        RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setBaseUri(EnvironmentConfig.getBaseUrl())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBody(body)
+                .log(LogDetail.ALL);
+
+        if (queryParams != null) {
+            queryParams.forEach(builder::addQueryParam);
+        }
+
+        return builder.build();
+    }
+
+    public static RequestSpecification getPutRequest(Object body) {
+        RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setBaseUri(EnvironmentConfig.getBaseUrl())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBody(body)
+                .log(LogDetail.ALL);
+
+        return builder.build();
+    }
+
+    public static RequestSpecification getPutRequestWithQueryParams(Map<String, Object> queryParams, Object body) {
+        RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setBaseUri(EnvironmentConfig.getBaseUrl())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBody(body)
+                .log(LogDetail.ALL);
+
+        if (queryParams != null) {
+            queryParams.forEach(builder::addQueryParam);
+        }
+
+        return builder.build();
+    }
+
+    public static RequestSpecification getPatchRequest(Object body) {
+        RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setBaseUri(EnvironmentConfig.getBaseUrl())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBody(body)
+                .log(LogDetail.ALL);
+
+        return builder.build();
+    }
+
+    public static RequestSpecification getPatchRequestWithQueryParams(Map<String, Object> queryParams, Object body) {
+        RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setBaseUri(EnvironmentConfig.getBaseUrl())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBody(body)
+                .log(LogDetail.ALL);
+
+        if (queryParams != null) {
+            queryParams.forEach(builder::addQueryParam);
+        }
+
+        return builder.build();
+    }
 
 }
