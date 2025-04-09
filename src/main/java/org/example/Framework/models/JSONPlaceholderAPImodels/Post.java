@@ -36,7 +36,11 @@ public class Post {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        if (id != null && id % 2 != 0) {
+            this.id = id + 1;
+        } else {
+            this.id = id;
+        }
     }
 
     public Integer getUserId() {
@@ -52,7 +56,12 @@ public class Post {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+
+        if (title == null || title.isEmpty()) {
+            return;
+        }
+
+        this.title =  title.substring(0, 1).toUpperCase() + title.substring(1);
     }
 
     public String getBody() {
