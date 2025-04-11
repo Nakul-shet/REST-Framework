@@ -1,41 +1,47 @@
 package org.example.Framework.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Properties;
+import java.util.Map;
 
 public class EnvironmentConfig {
-    private static final Properties properties = new Properties();
+
     private static final String DEFAULT_ENV = "test";
+    private static Map<String, String> configMap;
 
     static {
-        loadProperties();
+        loadConfig();
     }
 
-    private static void loadProperties() {
+    private static void loadConfig() {
         String env = System.getProperty("env", DEFAULT_ENV);
-        String propertiesFile = "config/" + env + ".json";
+        String configFilePath = "config/" + env + ".json";
 
-        try (InputStream input = EnvironmentConfig.class.getClassLoader().getResourceAsStream(propertiesFile)) {
+        try (InputStream input = EnvironmentConfig.class.getClassLoader().getResourceAsStream(configFilePath)) {
             if (input == null) {
-                System.out.println("Sorry, unable to find " + propertiesFile);
+                System.out.println("Unable to find config file: " + configFilePath);
                 return;
             }
-            properties.load(input);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+
+            ObjectMapper mapper = new ObjectMapper();
+            configMap = mapper.readValue(input, Map.class);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static String getBaseUrl() {
-        return System.getProperty("baseUrl", properties.getProperty("api.baseUrl", "https://jsonplaceholder.typicode.com"));
+        return System.getProperty("baseUrl", configMap.getOrDefault("api.baseUrl", "https://jsonplaceholder.typicode.com"));
     }
 
     public static int getRequestTimeout() {
-        return Integer.parseInt(System.getProperty("requestTimeout", properties.getProperty("api.timeout", "10000")));
+        String timeoutStr = System.getProperty("requestTimeout", configMap.getOrDefault("api.timeout", "10000"));
+        return Integer.parseInt(timeoutStr);
     }
 
     public static String getProperty(String key) {
-        return properties.getProperty(key);
+        return configMap.get(key);
     }
 }

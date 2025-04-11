@@ -7,9 +7,6 @@ import java.util.List;
 
 public class ResponseHandler {
 
-    /**
-     * Extracts response as a single object
-     */
     public static <T> T extractResponseAsObject(Response response, Class<T> responseClass) {
         try {
             return response.as(responseClass);
@@ -18,9 +15,6 @@ public class ResponseHandler {
         }
     }
 
-    /**
-     * Extracts response as a list of objects
-     */
     public static <T> List<T> extractResponseAsList(Response response, Class<T[]> arrayClass) {
         try {
             T[] extractedArray = response.as(arrayClass);
@@ -30,9 +24,6 @@ public class ResponseHandler {
         }
     }
 
-    /**
-     * Extracts value from JSON path
-     */
     public static <T> T extractValueFromJsonPath(Response response, String jsonPath, Class<T> valueType) {
         try {
             return response.jsonPath().getObject(jsonPath, valueType);
