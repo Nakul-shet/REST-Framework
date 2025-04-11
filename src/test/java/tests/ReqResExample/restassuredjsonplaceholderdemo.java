@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.example.Framework.models.JSONPlaceholderAPImodels.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -46,5 +47,32 @@ public class restassuredjsonplaceholderdemo {
         System.out.println("First tests.User Email: " + firstUserEmail);
 
         Assert.assertTrue(firstUserEmail.contains("@"), "Email should be valid");
+    }
+
+    @Test
+    public void testCreateUser() {
+
+        ReqResUserPOJO user = new ReqResUserPOJO("morpheus", "leader");
+
+        Response response = RestAssured
+                .given()
+                .contentType("application/json")
+                .body(user)
+                .when()
+                .post("/users")
+                .then()
+                .statusCode(201)
+                .extract()
+                .response();
+
+        // Validate response
+        String name = response.jsonPath().getString("name");
+        String job = response.jsonPath().getString("job");
+
+        System.out.println("Created User Name: " + name);
+        System.out.println("Created User Job: " + job);
+
+        Assert.assertEquals(name, "morpheus");
+        Assert.assertEquals(job, "leader");
     }
 }
