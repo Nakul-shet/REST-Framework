@@ -10,9 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
-
 public class restassuredjsonplaceholderdemo {
 
     @BeforeAll
@@ -27,7 +24,6 @@ public class restassuredjsonplaceholderdemo {
 
         Response response = RestAssured
                 .given()
-                .auth().basic("username", "password")
                 .header("Authorization", authToken)
                 .header("Content-Type", "application/json")
                 .queryParam("page" , "2")
@@ -37,6 +33,8 @@ public class restassuredjsonplaceholderdemo {
                 .statusCode(200)
                 .extract()
                 .response();
+
+        // https://api.example.com/users/123/orders?status=shipped&limit=10
 
         JsonPath jsonPath = response.jsonPath();
 
